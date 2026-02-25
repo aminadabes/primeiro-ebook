@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: semantic-api
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/semantic_theology
+    username: admin
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+# Quando usarmos o Docker-compose, a URL de DB será theology-db ao invés de localhost

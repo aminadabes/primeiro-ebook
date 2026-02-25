@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  theology-db:
+    image: ankane/pgvector:latest
+    container_name: semantic-pg
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: semantic_theology
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  theology-db-admin:
+    image: dpage/pgadmin4
+    container_name: semantic-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@teologia.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+
+volumes:
+  pgdata:
