@@ -1,0 +1,19 @@
+# Node
+node_modules/
+dist/
+
+# Java
+target/
+*.class
+.mvn/
+!/.mvn/wrapper/
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# OS
+.DS_Store
