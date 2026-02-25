@@ -17,3 +17,10 @@ spring:
         format_sql: true
 
 # Quando usarmos o Docker-compose, a URL de DB será theology-db ao invés de localhost
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:dummy-key-for-local-development}
+      chat:
+        options:
+          model: gpt-3.5-turbo

@@ -17,7 +17,7 @@ public class WebSecurityConfig {
             .csrf(csrf -> csrf.disable()) // Stateless APIs via JWT não precisam de CSRF Protection
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll() // Rotas de login liberadas
+                .requestMatchers("/api/auth/**", "/actuator/**").permitAll() // Rotas de login e health liberadas
                 .anyRequest().authenticated() // As rotas de manipulação de PDF exigem login
             );
 
