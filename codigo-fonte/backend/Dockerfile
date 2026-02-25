@@ -1,10 +1,10 @@
 # Estágio 1: Build da aplicação usando Maven e Java 21
-FROM eclipse-temurin:21-jdk AS builder
+FROM maven:3.9-eclipse-temurin-21 AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 # Compila e empacota ignorando testes para o build
-RUN ./mvnw clean package -DskipTests || mvn clean package -DskipTests
+RUN mvn clean package -DskipTests
 
 # Estágio 2: Cria a imagem final otimizada apenas com o JRE
 FROM eclipse-temurin:21-jre-alpine
